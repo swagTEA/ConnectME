@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="assets/img/favicon.ico">
+
+    <title>Theme 13 - Landing Sumo</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/custom-animations.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+<div id="picton">
+    <div class="row nopadding">
+      <div class="col-md-6 pull-left">
+        <img src="assets/img/zoolights.png" class="img-responsive alignleft" alt="" data-effect="slide-left">
+        <img src="assets/img/indian.png" class="img-responsive alignleft" alt="" data-effect="slide-left">
+      </div>
+      <div class="col-md-5 mt">
+          <table>
+        <h1>Lets Create an Event</h1>
+    <h4>Enter your Name <h4>
+    <p> This will help us put you in our database!</p>
+    <tr>
+        <td colspan="3">
+            <textarea id="inputTextToSave" cols="30" rows="2"></textarea>
+        </td>
+    </tr>
+  </table> 
+  <table> 
+    <h4>Name of the Event:<h4>
+    <tr>
+        <td>
+            <textarea id="TextToSave" cols="30" rows="2"></textarea>
+        </td>
+    </tr>
+  </table>
+  <table> 
+    <h4>Describe the Event!<h4>
+     <p> Enter words that describe your event such as: music, dance, concert and so on! This way we can categorize the data to the best of our abilities and get the maximum number of people to atten </p>
+    <tr>
+        <td>
+            <textarea id="Tags" cols="30" rows="2"></textarea>
+        </td>
+    </tr>
+    <tr>
+    </table> 
+    <table> 
+        <h4>Location of the Event<h4>
+        <p> You can log back in later to specify the physical address, for now just add the zipcode!</p>
+        
+       <td>
+            <textarea id="zipcode" cols="30" rows="2"></textarea>
+        </td>
+        </table>
+        <tr> <td class="mt"><button onClick= "saveTextAsFile()" class="btn btn-white btn-theme">Submit</button></td> </tr>
+    </tr>
+    
+      </div>
+  
+    </div><! --row -->
+  </div><! --/Picton -->
+<script type="text/javascript">
+ 
+function saveTextAsFile()
+{
+    var textToSave = document.getElementById("inputTextToSave").value  + "\n" + document.getElementById("TextToSave").value + "\n" +  document.getElementById("Tags").value + "\n" + document.getElementById("zipcode").value ;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = "newEvent"
+    
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+ 
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+ 
+ 
+</script>
+    <div id="c">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 centered">
+          <p>Copyright 2014 | LandingSumo.com</p>
+        </div>
+      </div>
+    </div><! --/container -->
+  </div><! --/C -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/retina-1.1.0.js"></script>
+    <script src="assets/js/jquery.unveilEffects.js"></script>
+  </body>
+</html>
